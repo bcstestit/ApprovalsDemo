@@ -31,4 +31,4 @@ jobs:
           echo "::set-output name=LogicAppUrl::$url"
           }          
     - name: Print Url
-      run: echo ${{ steps.GetUrl.outputs.LogicAppUrl }}
+      run: if (${{ steps.GetUrl.outputs.LogicAppUrl }}) { echo ${{ steps.GetUrl.outputs.LogicAppUrl }} } 
