@@ -21,7 +21,7 @@ jobs:
     - name: Run Azure PowerShell script
       id: GetUrl
       run: |
-          $url = test
+          $url = "test"
           if ($url)
           {
           echo $url
