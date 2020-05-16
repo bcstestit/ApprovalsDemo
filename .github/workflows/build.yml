@@ -33,9 +33,8 @@ jobs:
           }          
     - name: Print Url
       run: |
-          try { 
-          if (${{ steps.GetUrl.outputs.LogicAppUrl }}) 
-          { 
-            echo ${{ steps.GetUrl.outputs.LogicAppUrl }} 
+          $value = ${{ steps.GetUrl.outputs.LogicAppUrl }} 
+          if ($value)
+          {
+          echo $value
           }
-          } catch { echo "No Url" }  
