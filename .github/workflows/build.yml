@@ -18,7 +18,7 @@ jobs:
       with:
         creds: ${{secrets.AZURE_CREDENTIALS}}
         enable-AzPSSession: true        
-    - name: Run Azure PowerShell script
+    - name: Connect to Logic App
       id: GetUrl
       uses: azure/powershell@v1
       with:
@@ -26,17 +26,11 @@ jobs:
           $url = (Get-AzLogicAppTriggerCallbackUrl -ResourceGroupName actionsdemo -Name MyFirstLogiApp -TriggerName manual).Value
           if ($url)
           {
-          echo $url
           echo "::add-mask::$url"
           echo "::set-output name=LogicAppUrl::$url"
-          }
-          else
-          {
-          echo "Url not found"
-          }
-        azPSVersion: '3.1.0'
-          
-    - name: Print Url
+          }          
+        azPSVersion: '3.1.0'          
+    - name: Initiate approval
       run: |
           $value = "${{ steps.GetUrl.outputs.LogicAppUrl }}" 
           if ($value)
