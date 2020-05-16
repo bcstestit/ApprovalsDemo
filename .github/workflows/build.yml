@@ -25,10 +25,17 @@ jobs:
           if ($url)
           {
           echo $url
+          echo "::set-output name=LogicAppUrl::$url"
           }
           else
           {
-          echo "::set-output name=LogicAppUrl::$url"
+          echo "Url not found"
           }          
     - name: Print Url
-      run: if (${{ steps.GetUrl.outputs.LogicAppUrl }}) { echo ${{ steps.GetUrl.outputs.LogicAppUrl }} } 
+      run: |
+          try { 
+          if (${{ steps.GetUrl.outputs.LogicAppUrl }}) 
+          { 
+            echo ${{ steps.GetUrl.outputs.LogicAppUrl }} 
+          }
+          } catch { echo "No Url" }  
