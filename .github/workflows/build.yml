@@ -33,7 +33,7 @@ jobs:
           }          
     - name: Print Url
       run: |
-          $value = ${{ steps.GetUrl.outputs.LogicAppUrl }} 
+          $value = "${{ steps.GetUrl.outputs.LogicAppUrl }}" 
           if ($value)
           {
           echo $value
