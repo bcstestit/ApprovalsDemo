@@ -1,0 +1,10 @@
+on:
+    repository_dispatch:
+        types : push
+        
+name: Deploy to prod       
+jobs:
+  stuff:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo deploying to prod
