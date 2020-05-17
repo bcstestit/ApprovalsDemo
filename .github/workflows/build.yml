@@ -36,6 +36,14 @@ jobs:
           if ($value)
           {
           echo $value
+           - uses: CamiloGarciaLaRotta/watermelon-http-client@v1
+          with:
+          
+            url: $value
+            method: post
+            headers: '{"Content-Type": "application/json"}'
+            data: '{ "approvers": "lohachan0108@gmail.com", "instructions":"Lorem Ipsum"}'
+
           }
 
           
