@@ -1,5 +1,5 @@
 This repository demonstrates use of Approvals using Azure Logic App in CI/CD for the PHP hello world app
-
+There are two workflows build and deploy indicating two stages in the CI/CD pipeline
 
 # PHP Hello World
 
