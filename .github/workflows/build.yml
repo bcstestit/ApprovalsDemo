@@ -17,7 +17,7 @@ jobs:
       uses: azure/login@v1.1
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
-        enable-AzPSSession: true        
+        enable-AzPSSession: true         
     - name: Connect to Logic App
       id: GetUrl
       uses: azure/powershell@v1
