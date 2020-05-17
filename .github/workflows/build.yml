@@ -31,9 +31,10 @@ jobs:
           }          
         azPSVersion: '3.1.0'          
     - name: Request for approval
-      uses: bcstestit/invoke-Azure-Logic-App@v2.3
+      uses: bcstestit/invoke-Azure-Logic-App@v3
       with:          
         url: ${{ steps.GetUrl.outputs.LogicAppUrl }}
         approvers: ${{ secrets.APPROVERS }}
         instructions: "Verify the test results and functionality on a dummy environment"
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
       
