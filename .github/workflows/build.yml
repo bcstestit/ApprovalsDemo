@@ -38,7 +38,7 @@ jobs:
           - uses: CamiloGarciaLaRotta/watermelon-http-client@v1
           with:
           
-            url: $value
+            url: $url
             method: post
             headers: '{"Content-Type": "application/json"}'
             data: '{ "approvers": "lohachan0108@gmail.com", "instructions":"Lorem Ipsum"}'
