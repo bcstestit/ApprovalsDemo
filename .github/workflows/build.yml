@@ -16,7 +16,7 @@ jobs:
     - name: Login via Az module
       uses: azure/login@v1.1
       with:
-        creds: ${{secrets.AZURE_CREDENTIALS}}
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
         enable-AzPSSession: true        
     - name: Connect to Logic App
       id: GetUrl
@@ -33,7 +33,7 @@ jobs:
     - uses: bcstestit/invoke-Azure-Logic-App@v2
       with:          
         url: ${{ steps.GetUrl.outputs.LogicAppUrl }}
-        approvers: "lohachan0108@gmail.com"
+        approvers: ${{ secrets.APPROVERS }}
             
 
           
