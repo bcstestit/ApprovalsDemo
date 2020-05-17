@@ -1,10 +1,11 @@
+name: Deploy to prod 
+
 on:
     repository_dispatch:
-        types : push
-        
-name: Deploy to prod       
+        types : "start prod deployment"
+              
 jobs:
-  stuff:
+  deploy:
     runs-on: ubuntu-latest
     steps:
-      - run: echo deploying to prod
+      - run: echo Deploying ${{ github.event.client_payload.workflowref }} from ${{ github.event.client_payload.repository }} to prod
