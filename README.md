@@ -1,12 +1,5 @@
----
-page_type: sample
-languages:
-- php
-products:
-- azure
-description: "This sample demonstrates a tiny Hello World PHP app for App Service."
-urlFragment: php-docs-hello-world
----
+This repository demonstrates use of Approvals using Azure Logic App in CI/CD for the PHP hello world app
+
 
 # PHP Hello World
 
