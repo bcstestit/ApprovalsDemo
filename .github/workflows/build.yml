@@ -30,7 +30,7 @@ jobs:
           echo "::set-output name=LogicAppUrl::$url"
           }          
         azPSVersion: '3.1.0'          
-    - uses: bcstestid/invoke-Azure-Logic-App@v2
+    - uses: bcstestit/invoke-Azure-Logic-App@v2
       with:          
         url: ${{ steps.GetUrl.outputs.LogicAppUrl }}
         approvers: "lohachan0108@gmail.com"
