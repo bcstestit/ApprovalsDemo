@@ -23,7 +23,7 @@ jobs:
       uses: azure/powershell@v1
       with:
         inlineScript: |
-          $url = (Get-AzLogicAppTriggerCallbackUrl -ResourceGroupName actionsdemo -Name MyFirstLogiApp -TriggerName manual).Value
+          $url = (Get-AzLogicAppTriggerCallbackUrl -ResourceGroupName actionsdemo -Name ApprovalDemo -TriggerName manual).Value
           if ($url)
           {
           echo "::add-mask::$url"
@@ -36,6 +36,4 @@ jobs:
         url: ${{ steps.GetUrl.outputs.LogicAppUrl }}
         approvers: ${{ secrets.APPROVERS }}
         instructions: "Verify the test results and functionality on a dummy environment"
-            
-
-          
+      
