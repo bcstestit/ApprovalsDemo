@@ -30,10 +30,12 @@ jobs:
           echo "::set-output name=LogicAppUrl::$url"
           }          
         azPSVersion: '3.1.0'          
-    - uses: bcstestit/invoke-Azure-Logic-App@v2
+    - name: Request for approval
+      uses: bcstestit/invoke-Azure-Logic-App@v2
       with:          
         url: ${{ steps.GetUrl.outputs.LogicAppUrl }}
         approvers: ${{ secrets.APPROVERS }}
+        instructions: "Verify the test results and functionality on a dummy environment"
             
 
           
