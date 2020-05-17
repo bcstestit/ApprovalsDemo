@@ -26,7 +26,16 @@ jobs:
           $url = (Get-AzLogicAppTriggerCallbackUrl -ResourceGroupName actionsdemo -Name MyFirstLogiApp -TriggerName manual).Value
           if ($url)
           {
-          echo $url
+          echo "::add-mask::$url"
+          echo "::set-output name=LogicAppUrl::$url"
           }          
+        azPSVersion: '3.1.0'          
+    - name: Initiate approval
+      run: |
+          $value = "${{ steps.GetUrl.outputs.LogicAppUrl }}" 
+          if ($value)
+          {
+          echo $value
+          }
 
           
